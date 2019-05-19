@@ -34,6 +34,7 @@ export const query = graphql`
 
 const Blog = props => (
   <Layout>
+    {console.log("------------", props.location.href)}
     <SEO
       title={props.data.contentfulBlog.title}
       keywords={props.data.contentfulBlog.tags}
@@ -53,19 +54,19 @@ const Blog = props => (
       <div className="share">
         <FacebookShareButton
           quote={props.data.contentfulBlog.title}
-          url="ta4rida.com"
+          url={props.location.href}
         >
           <FacebookIcon size={32} round={true} />
         </FacebookShareButton>
         <TwitterShareButton
           title={props.data.contentfulBlog.title}
-          url="ta4rida.com"
+          url={props.location.href}
         >
           <TwitterIcon size={32} round={true} />
         </TwitterShareButton>
         <WhatsappShareButton
           title={props.data.contentfulBlog.title}
-          url="ta4rida.com"
+          url={props.location.href}
         >
           <WhatsappIcon size={32} round={true} />
         </WhatsappShareButton>
