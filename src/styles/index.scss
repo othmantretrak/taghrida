@@ -1,0 +1,355 @@
+@import url("https://fonts.googleapis.com/css?family=Markazi+Text:400,500");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.color {
+  color: #5d5c61;
+  color: #938e94;
+  color: #7395ae;
+  color: #557a95;
+  color: #b0a295;
+}
+
+body {
+  background: #ecf0f1;
+  font-family: "Markazi Text", serif;
+  direction: rtl;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+}
+header {
+  height: 8vh;
+  background-color: #3498db;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  h2 {
+    font-size: 1.2rem;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-top: 12px;
+}
+
+.logo {
+  margin-right: 12px;
+  img {
+    width: 53%;
+  }
+}
+
+nav ul {
+  position: absolute;
+  top: 8vh;
+  background-image: -webkit-linear-gradient(85deg, #0a58c0 0, #00ade1 100%);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  transform: translateX(200%);
+  transition: transform 0.2s ease-in;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    color: #fff;
+    display: block;
+    position: relative;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    padding: 0 3px 0 0;
+  }
+  .activeNavItem {
+    color: #ffeb3b;
+  }
+}
+
+nav ul.nav-active {
+  transform: translateX(70%);
+  max-width: 800px;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 2rem;
+}
+
+.bars {
+  margin-left: 12px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.bars div {
+  height: 3px;
+  background-color: #e4f0f1;
+  width: 25px;
+  margin: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.toggle .line1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.wrap {
+  padding: 5px;
+  background-color: #f9feff;
+}
+
+.heading-h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #16a085;
+  line-height: 0.4em;
+  margin: 30px 0 34px;
+  font-size: 20px;
+}
+
+.heading-h2 .heading-span {
+  background: #16a085;
+  padding: 0 35px;
+  color: #e2e2e2;
+}
+
+.card-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(320px, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card-list .card {
+  border: 1px solid #7f8c8d;
+  border-radius: 0.5rem;
+  a {
+    text-decoration: none;
+  }
+}
+
+.card-list .card .info {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 1rem 0.75rem;
+  color: #2c3e50;
+}
+
+.card-list .card .info h4 {
+  padding-bottom: 10px;
+}
+
+.card-list .card .info .meta {
+  border-top: 1px solid #7f8c8d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.card-list .card .thumb {
+  max-height: 220px;
+  overflow: hidden;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card-list .card .thumb img {
+  width: 100%;
+}
+//single blog
+.blog {
+  img {
+    width: 100%;
+  }
+  h1 {
+    font-size: 1.7rem;
+    margin: 1.5rem 0;
+    border-bottom: 1px solid #c1ced2;
+    padding: 0.6rem 0.2rem;
+  }
+  .content {
+    padding: 0.7rem 0.7rem;
+    color: #08090c;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: right;
+  }
+  .blog-footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ecf0f1;
+    padding: 0.7rem 0;
+    .tags {
+      display: flex;
+      .badge {
+        margin: 5px;
+        color: #fff;
+        background-color: #4caf50;
+        display: inline-block;
+        padding: 0.25em 0.4em;
+        /* font-size: 75%; */
+        font-weight: 700;
+        /* line-height: 1; */
+        text-align: center;
+        /* white-space: nowrap; */
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+      }
+    }
+  }
+}
+.badgelist {
+  display: flex;
+  justify-content: space-around;
+  .badge {
+    color: #fff;
+    background-color: #17a2b8;
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    /* font-size: 75%; */
+    font-weight: 700;
+    /* line-height: 1; */
+    text-align: center;
+    /* white-space: nowrap; */
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  border-top: 1px solid #7f8c8d;
+  padding: 1rem;
+  color: white;
+  background-color: #3498db;
+  display: flex;
+  justify-content: space-around;
+  .copyright {
+    color: #d1d4d2;
+
+    a {
+      text-decoration: none;
+      color: #d1d4d2;
+      font-size: 1rem;
+      transition: all 0.2s ease-in;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .blog {
+    text-align: center;
+    img {
+      width: 80%;
+    }
+  }
+  nav ul.nav-active {
+    transform: translateX(59%);
+  }
+}
+
+/*privacy */
+
+.privacy {
+  h1,
+  h2,
+  h3 {
+    text-align: center;
+    margin: 18px;
+  }
+}
+/* contact */
+
+.email {
+  text-align: center;
+  h1 {
+    text-align: center;
+    margin: 1.3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+}
+.myForm {
+  display: flex;
+  border-radius: 3px;
+  padding: 1.8em;
+}
+.message {
+  margin-right: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.message > textarea {
+  flex: 1;
+  min-width: 18em;
+}
+.contact {
+  flex: 1;
+}
+.contact input {
+  width: 100%;
+}
+.contact input,
+.contact button {
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.contact button {
+  background: gray;
+  color: white;
+  border: 0;
+}
+.share {
+  display: flex;
+  margin: 1rem 0px;
+  align-items: center;
+  justify-content: center;
+  .SocialMediaShareButton {
+    text-align: center;
+    margin: 0px 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

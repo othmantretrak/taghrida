@@ -1,40 +1,41 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import blogStyles from "./blog.module.scss"
 import SEO from "../components/seo"
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allContentfulBlog(sort: { fields: createdAt, order: DESC }) {
-        edges {
-          node {
-            title
-            slug
-
-            thumb {
-              fluid {
-                src
-              }
+export const query = graphql`
+  query($tag: String!) {
+    allContentfulBlog(filter: { tags: { in: [$tag] } }) {
+      edges {
+        node {
+          title
+          slug
+          thumb {
+            fluid {
+              src
             }
-            createdAt(locale: "ar", formatString: "MMMM Do, YYYY")
           }
+          createdAt(formatString: "MMMM Do, YYYY")
         }
       }
     }
-  `)
-
+  }
+`
+const Tag = props => {
+  console.log("----------------------------", props)
   return (
     <Layout>
-      <SEO title="الرئيسية" keywords={[`اخبار`, `تغريدة`, `مواضيع`]} />
+      <SEO
+        title={props.pageContext.tag}
+        keywords={[`${props.pageContext.tag}`, `taghrida`, `تغريدة `]}
+      />
       <div className="wrap">
         <h2 className="heading-h2">
-          <span className="heading-span">مواضيع</span>
+          <span className="heading-span">{props.pageContext.tag}</span>
         </h2>
         <div className="card-list">
-          {data.allContentfulBlog.edges.map(edge => {
+          {props.data.allContentfulBlog.edges.map(edge => {
             return (
               <div key={edge.node.slug} className="card">
                 <Link to={`/blog/${edge.node.slug}`}>
@@ -45,7 +46,7 @@ const IndexPage = () => {
                   <div className="info">
                     <h4>{edge.node.title}></h4>
                     <div className="meta">
-                      <span>{edge.node.publishedDate}</span>
+                      <span>{edge.node.createdAt}</span>
                       <span>المزيد</span>
                     </div>
                   </div>
@@ -54,10 +55,9 @@ const IndexPage = () => {
             )
           })}
         </div>
-        <ol className={blogStyles.posts} />
       </div>
     </Layout>
   )
 }
 
-export default IndexPage
+export default Tag

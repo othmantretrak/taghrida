@@ -1,42 +1,68 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+import logo from "../images/logo.png"
+//import headerStyles from "./header.module.scss"
+
+const Header = () => {
+  const [nav, setNav] = React.useState(false)
+
+  const openNav = () => {
+    setNav(!nav)
+  }
+  return (
+    <header className="header">
+      <div className="logo">
+        <Link className="title" to="/">
+          <img src={logo} alt="taghrida logo" />
         </Link>
-      </h1>
-    </div>
-  </header>
-)
+      </div>
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+      <nav>
+        <ul className={nav ? "navList nav-active" : "navList"}>
+          <li onClick={openNav}>
+            <Link className="navItem" activeClassName="activeNavItem" to="/">
+              الرئيسية
+            </Link>
+          </li>
 
-Header.defaultProps = {
-  siteTitle: ``,
+          <li onClick={openNav}>
+            <a
+              href="https://www.facebook.com/ta4rida"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="navItem"
+            >
+              صفحتنا على فيسبوك
+            </a>
+          </li>
+          <li onClick={openNav}>
+            <Link
+              className="navItem"
+              activeClassName="activeNavItem"
+              to="/contact"
+            >
+              اتصل بنا
+            </Link>
+          </li>
+          <li onClick={openNav}>
+            <Link
+              className="navItem"
+              activeClassName="activeNavItem"
+              to="/privacy"
+            >
+              الخصوصية
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <div onClick={openNav} className={nav ? "bars toggle" : "bars"}>
+        <div className="line1" />
+        <div className="line2" />
+        <div className="line3" />
+      </div>
+    </header>
+  )
 }
 
 export default Header
