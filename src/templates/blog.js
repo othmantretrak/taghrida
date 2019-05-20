@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import GoogleAd from "../components/GoogleAd"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {
   FacebookShareButton,
@@ -54,7 +55,9 @@ const Blog = props => {
         <div className="content">
           <p>{props.data.contentfulBlog.excerpt}</p>
           <div className="ads-more">
-            <div className="ads1">Ads1</div>
+            <div className="ads1">
+              <GoogleAd client="ca-pub-1063328225356164" slot="1513756133" />
+            </div>
             <button
               className="btn-hide"
               onClick={() => sethide("block")}
@@ -67,7 +70,9 @@ const Blog = props => {
           <div className="body-post" style={{ display: hide }}>
             {documentToReactComponents(props.data.contentfulBlog.body.json)}
           </div>
-          <div className="ads1">Ads2</div>
+          <div className="ads1">
+            <GoogleAd client="ca-pub-1063328225356164" slot="1513756133" />
+          </div>
         </div>
         <div className="share">
           <FacebookShareButton
