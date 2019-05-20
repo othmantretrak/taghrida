@@ -352,4 +352,28 @@ footer {
   }
 }
 
+.ads-more {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+
+  .btn-hide {
+    background: linear-gradient(to right, rgb(52, 152, 219), rgb(23, 162, 184));
+    font-size: 1rem;
+    width: 176px;
+    padding: 11px 18px;
+    border-radius: 5px;
+    margin: 40px auto;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+  }
+}
+.ads1 {
+  height: 140px;
+  background-color: gray;
+  text-align: center;
+  color: #f1f0f0;
+  font-size: 4rem;
+}
 /*# sourceMappingURL=style.css.map */

@@ -37,7 +37,7 @@ const IndexPage = () => {
           {data.allContentfulBlog.edges.map(edge => {
             return (
               <div key={edge.node.slug} className="card">
-                <Link to={`/blog/${edge.node.slug}`}>
+                <Link to={`/${edge.node.slug}`}>
                   <div className="thumb">
                     <img src={edge.node.thumb.fluid.src} alt="ff" />
                   </div>
@@ -45,7 +45,7 @@ const IndexPage = () => {
                   <div className="info">
                     <h4>{edge.node.title}></h4>
                     <div className="meta">
-                      <span>{edge.node.publishedDate}</span>
+                      <span>{edge.node.createdAt}</span>
                       <span>المزيد</span>
                     </div>
                   </div>
