@@ -43,7 +43,7 @@ const IndexPage = () => {
                   </div>
 
                   <div className="info">
-                    <h4>{edge.node.title}></h4>
+                    <h4>{edge.node.title}</h4>
                     <div className="meta">
                       <span>{edge.node.createdAt}</span>
                       <span>المزيد</span>

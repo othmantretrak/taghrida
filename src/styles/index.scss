@@ -376,4 +376,18 @@ footer {
   color: #f1f0f0;
   font-size: 4rem;
 }
+.notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  h3 {
+    margin: 25px;
+  }
+  a {
+    font-size: 1.3rem;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

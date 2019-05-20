@@ -23,7 +23,6 @@ export const query = graphql`
   }
 `
 const Tag = props => {
-  console.log("----------------------------", props)
   return (
     <Layout>
       <SEO
@@ -38,7 +37,7 @@ const Tag = props => {
           {props.data.allContentfulBlog.edges.map(edge => {
             return (
               <div key={edge.node.slug} className="card">
-                <Link to={`/blog/${edge.node.slug}`}>
+                <Link to={`/${edge.node.slug}`}>
                   <div className="thumb">
                     <img src={edge.node.thumb.fluid.src} alt="ff" />
                   </div>
