@@ -146,9 +146,7 @@ nav ul li {
 }
 
 .card-list {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(320px, 1fr)) [auto-fit];
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 1rem;
 }
@@ -195,8 +193,18 @@ nav ul li {
 }
 //single blog
 .blog {
+  h3 {
+    padding: 11px;
+    background-color: gainsboro;
+    display: inline-block;
+    color: #0a4f86;
+  }
+  .thumb {
+    text-align: center;
+  }
   img {
     width: 100%;
+    max-width: 600px;
   }
   h1 {
     font-size: 1.7rem;
@@ -215,6 +223,7 @@ nav ul li {
     display: flex;
     justify-content: space-around;
     background-color: #ecf0f1;
+    border-top: 1px solid #c1ced2;
     padding: 0.7rem 0;
     .tags {
       display: flex;
@@ -277,18 +286,6 @@ footer {
   }
 }
 
-@media (min-width: 992px) {
-  .blog {
-    text-align: center;
-    img {
-      width: 80%;
-    }
-  }
-  nav ul.nav-active {
-    transform: translateX(59%);
-  }
-}
-
 /*privacy */
 
 .privacy {
@@ -343,7 +340,8 @@ footer {
 }
 .share {
   display: flex;
-  margin: 1rem 0px;
+  padding-top: 2rem;
+  border-top: 1px solid #c1ced2;
   align-items: center;
   justify-content: center;
   .SocialMediaShareButton {
@@ -387,6 +385,36 @@ footer {
   }
   a {
     font-size: 1.3rem;
+  }
+}
+/* related */
+
+.list-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+
+  border-top: 1px solid #c1ced2;
+
+  .card {
+    img {
+    }
+    h2 {
+      font-size: 1rem;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .blog {
+    img {
+    }
+  }
+  nav ul.nav-active {
+    transform: translateX(59%);
   }
 }
 

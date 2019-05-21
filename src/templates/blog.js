@@ -13,10 +13,11 @@ import {
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RelatedPost from "../components/related"
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulBlog(slug: { eq: $slug }) {
+  query($slug: String!, $category: String!) {
+    blog: contentfulBlog(slug: { eq: $slug }) {
       title
       tags
       author
@@ -26,9 +27,22 @@ export const query = graphql`
           src
         }
       }
-      createdAt(formatString: "MMMM Do, YYYY")
+      createdAt(locale: "ar", formatString: "MMMM Do, YYYY")
       body {
         json
+      }
+    }
+    related: allContentfulBlog(filter: { category: { eq: $category } }) {
+      edges {
+        node {
+          slug
+          title
+          thumb {
+            fluid {
+              src
+            }
+          }
+        }
       }
     }
   }
@@ -36,24 +50,29 @@ export const query = graphql`
 
 const Blog = props => {
   const [hide, sethide] = React.useState("none")
+
   return (
     <Layout>
-      {console.log("------------", props.location.href)}
       <SEO
-        title={props.data.contentfulBlog.title}
-        keywords={props.data.contentfulBlog.tags}
-        image={props.data.contentfulBlog.thumb.fluid.src}
+        title={props.data.blog.title}
+        keywords={props.data.blog.tags}
+        image={props.data.blog.thumb.fluid.src}
       />
       <div className="wrap blog">
-        <h1>{props.data.contentfulBlog.title}</h1>
+        <h1>{props.data.blog.title}</h1>
+        <div className="thumb">
+          <img
+            src={props.data.blog.thumb.fluid.src}
+            alt={props.data.blog.title}
+          />
+        </div>
 
-        <img src={props.data.contentfulBlog.thumb.fluid.src} alt="ff" />
         <div className="badgelist">
-          <p className="badge">{props.data.contentfulBlog.createdAt}</p>
-          <p className="badge">{props.data.contentfulBlog.author}</p>
+          <p className="badge">{props.data.blog.createdAt}</p>
+          <p className="badge">{props.data.blog.author}</p>
         </div>
         <div className="content">
-          <p>{props.data.contentfulBlog.excerpt}</p>
+          <p>{props.data.blog.excerpt}</p>
           <div className="ads-more">
             <div className="ads1">
               <GoogleAd client="ca-pub-1063328225356164" slot="1513756133" />
@@ -68,36 +87,38 @@ const Blog = props => {
           </div>
 
           <div className="body-post" style={{ display: hide }}>
-            {documentToReactComponents(props.data.contentfulBlog.body.json)}
+            {documentToReactComponents(props.data.blog.body.json)}
           </div>
           <div className="ads1">
             <GoogleAd client="ca-pub-1063328225356164" slot="1513756133" />
           </div>
         </div>
+        <h3>شارك هذه المقالة</h3>
         <div className="share">
           <FacebookShareButton
-            quote={props.data.contentfulBlog.title}
+            quote={props.data.blog.title}
             url={props.location.href}
           >
             <FacebookIcon size={32} round={true} />
           </FacebookShareButton>
           <TwitterShareButton
-            title={props.data.contentfulBlog.title}
+            title={props.data.blog.title}
             url={props.location.href}
           >
             <TwitterIcon size={32} round={true} />
           </TwitterShareButton>
           <WhatsappShareButton
-            title={props.data.contentfulBlog.title}
+            title={props.data.blog.title}
             url={props.location.href}
           >
             <WhatsappIcon size={32} round={true} />
           </WhatsappShareButton>
         </div>
+        <RelatedPost related={props.data.related} />
+        <h3>كلمات ذات صلة: </h3>
         <div className="blog-footer">
-          <h3>كلمات ذات صلة: </h3>
           <div className="tags">
-            {props.data.contentfulBlog.tags.map(t => (
+            {props.data.blog.tags.map(t => (
               <Link to={`/tag/${t}`} key={t}>
                 <div className="badge">{t}</div>
               </Link>

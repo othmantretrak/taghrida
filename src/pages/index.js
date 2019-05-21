@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import blogStyles from "./blog.module.scss"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
@@ -54,7 +53,6 @@ const IndexPage = () => {
             )
           })}
         </div>
-        <ol className={blogStyles.posts} />
       </div>
     </Layout>
   )
