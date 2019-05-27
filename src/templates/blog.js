@@ -90,7 +90,14 @@ const Blog = props => {
             {documentToReactComponents(props.data.blog.body.json)}
           </div>
           <div className="ads1">
-            <GoogleAd client="ca-pub-1063328225356164" slot="1513756133" />
+            <ins
+              class="adsbygoogle"
+              style="display:block; text-align:center;"
+              data-ad-layout="in-article"
+              data-ad-format="fluid"
+              data-ad-client="ca-pub-1063328225356164"
+              data-ad-slot="7150409391"
+            />
           </div>
         </div>
         <h3>شارك هذه المقالة</h3>
