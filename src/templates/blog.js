@@ -74,13 +74,7 @@ const Blog = props => {
         <div className="content">
           <p>{props.data.blog.excerpt}</p>
           <div className="ads-more">
-            <div className="ads1">
-              <GoogleAd
-                client="ca-pub-1063328225356164"
-                slot="1513756133"
-                format="fluid"
-              />
-            </div>
+            <div className="ads1" />
             <button
               className="btn-hide"
               onClick={() => sethide("block")}
@@ -93,13 +87,7 @@ const Blog = props => {
           <div className="body-post" style={{ display: hide }}>
             {documentToReactComponents(props.data.blog.body.json)}
           </div>
-          <div className="ads1">
-            <GoogleAd
-              client="ca-pub-1063328225356164"
-              slot="7150409391"
-              format="fluid"
-            />
-          </div>
+          <div className="ads1" />
         </div>
         <h3>شارك هذه المقالة</h3>
         <div className="share">
