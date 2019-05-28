@@ -87,7 +87,16 @@ const Blog = props => {
           <div className="body-post" style={{ display: hide }}>
             {documentToReactComponents(props.data.blog.body.json)}
           </div>
-          <div className="ads1" />
+          <div className="ads1">
+            <ins
+              class="adsbygoogle"
+              style="display:block; text-align:center;"
+              data-ad-layout="in-article"
+              data-ad-format="fluid"
+              data-ad-client="ca-pub-1063328225356164"
+              data-ad-slot="1513756133"
+            />
+          </div>
         </div>
         <h3>شارك هذه المقالة</h3>
         <div className="share">
