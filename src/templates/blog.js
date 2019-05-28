@@ -74,7 +74,16 @@ const Blog = props => {
         <div className="content">
           <p>{props.data.blog.excerpt}</p>
           <div className="ads-more">
-            <div className="ads1" />
+            <div className="ads1">
+              <ins
+                className="adsbygoogle"
+                style={{ display: block, textAlign: center }}
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
+                data-ad-client="ca-pub-1063328225356164"
+                data-ad-slot="7150409391"
+              />
+            </div>
             <button
               className="btn-hide"
               onClick={() => sethide("block")}
@@ -89,8 +98,8 @@ const Blog = props => {
           </div>
           <div className="ads1">
             <ins
-              class="adsbygoogle"
-              style="display:block; text-align:center;"
+              className="adsbygoogle"
+              style={{ display: block, textAlign: center }}
               data-ad-layout="in-article"
               data-ad-format="fluid"
               data-ad-client="ca-pub-1063328225356164"
