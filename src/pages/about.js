@@ -7,11 +7,11 @@ import SEO from "../components/seo"
 const AboutPage = () => {
   return (
     <Layout>
-      <SEO title="About" />
-      <h1>About Me</h1>
-      <p>I currently teach full-time on Udemy.</p>
+      <SEO title="من نحن" />
+      <h1>من نحن </h1>
+      <p>إن لديك المزيد من التساولات المرجو الاتصال بنا .</p>
       <p>
-        <Link to="/contact">Want to work with me? Reach out.</Link>
+        <Link to="/contact">إتصل بنا .</Link>
       </p>
     </Layout>
   )
