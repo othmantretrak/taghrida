@@ -77,11 +77,11 @@ const Blog = props => {
             <div className="ads1">
               <ins
                 className="adsbygoogle"
-                style={{ display: "block", textAlign: "center" }}
-                data-ad-layout="in-article"
-                data-ad-format="fluid"
+                style={{ display: "block" }}
                 data-ad-client="ca-pub-1063328225356164"
-                data-ad-slot="7150409391"
+                data-ad-slot="1340840638"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
               />
             </div>
             <button
@@ -99,11 +99,11 @@ const Blog = props => {
           <div className="ads1">
             <ins
               className="adsbygoogle"
-              style={{ display: "block", textAlign: "center" }}
-              data-ad-layout="in-article"
-              data-ad-format="fluid"
+              style={{ display: "block" }}
               data-ad-client="ca-pub-1063328225356164"
-              data-ad-slot="1513756133"
+              data-ad-slot="1646471704"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
             />
           </div>
         </div>
