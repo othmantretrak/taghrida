@@ -40,6 +40,7 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     `gatsby-plugin-sitemap`,
+    "gatsby-plugin-robots-txt",
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
