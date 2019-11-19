@@ -29,7 +29,7 @@ const Tag = props => {
           <span className="heading-span">{props.pageContext.tag}</span>
         </h2>
         <div className="card-list">
-          {props.data.swapi.articles.map(article => {
+          {props.data.swapi.tagArticles.map(article => {
             return (
               <div key={article.slug} className="card">
                 <Link to={`/${article.slug}`}>

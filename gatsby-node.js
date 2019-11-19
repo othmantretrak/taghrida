@@ -51,7 +51,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         component: tagTemplate,
         path: `/tag/${tag}`,
         context: {
-          tag: tag,
+          tag
         },
       })
     })
