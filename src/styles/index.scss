@@ -89,6 +89,7 @@ nav ul {
 nav ul.nav-active {
   transform: translateX(70%);
   max-width: 800px;
+  z-index: 100;
 }
 
 nav ul li {
@@ -191,6 +192,18 @@ nav ul li {
 .card-list .card .thumb img {
   width: 100%;
 }
+.paginate{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0px;
+  a{
+    text-decoration: none;
+    background-color: #16a085;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
 //single blog
 .blog,
 .google-auto-placed {
@@ -202,7 +215,17 @@ nav ul li {
     margin-top: 27px;
   }
   .thumb {
+    position: relative;
     text-align: center;
+    .cat{
+      position: absolute;
+      margin-right: 10px;
+      margin-top: 10px;
+      background-color: #17a2b8;
+      padding: 6px 15px;
+      border-radius: 5px;
+      color: white;
+    }
   }
   img {
     width: 100%;
@@ -237,7 +260,7 @@ nav ul li {
         display: inline-block;
         padding: 0.25em 0.4em;
         /* font-size: 75%; */
-        font-weight: 700;
+        font-weight: 500;
         /* line-height: 1; */
         text-align: center;
         /* white-space: nowrap; */
@@ -252,11 +275,11 @@ nav ul li {
   justify-content: space-around;
   .badge {
     color: #fff;
-    background-color: #17a2b8;
+    background-color: #3498db;
     display: inline-block;
     padding: 0.25em 0.4em;
     /* font-size: 75%; */
-    font-weight: 700;
+    font-weight: 500;
     /* line-height: 1; */
     text-align: center;
     /* white-space: nowrap; */
@@ -393,11 +416,10 @@ footer {
   border-top: 1px solid #c1ced2;
 
   .card {
-    img {
-    }
     h2 {
       font-size: 1rem;
       text-align: center;
+      color: #3498db;
     }
     a {
       text-decoration: none;

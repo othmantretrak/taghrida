@@ -1,4 +1,4 @@
-import React from "react"
+/* import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
@@ -8,17 +8,13 @@ import SEO from "../components/seo"
 const newest = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulTaghridaModel(sort: { fields: publishedDate, order: DESC }) {
+      allMongodbTestArticles(sort: { fields: id, order: DESC }) {
         edges {
           node {
             title
             slug
-            thumb {
-              fluid {
-                src
-              }
-            }
-            publishedDate(locale: "ar", formatString: "MMMM Do, YYYY")
+            imgUri
+            mongodb_id
           }
         }
       }
@@ -33,7 +29,7 @@ const newest = () => {
           <span className="heading-span">مواضيع</span>
         </h2>
         <div className="card-list">
-          {data.allContentfulTaghridaModel.edges.map(edge => (
+          {data.allMongodbTestArticles.edges.map(edge => (
             <div key={edge.node.slug} className="card">
               <Link to={`/blog/${edge.node.slug}`}>
                 <div className="thumb">
@@ -43,7 +39,7 @@ const newest = () => {
                 <div className="info">
                   <h4>{edge.node.title}></h4>
                   <div className="meta">
-                    <span>{edge.node.publishedDate}</span>
+                    <span>{edge.node.mongodb_id}</span>
                     <span>المزيد</span>
                   </div>
                 </div>
@@ -58,3 +54,4 @@ const newest = () => {
 }
 
 export default newest
+ */

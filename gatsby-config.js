@@ -29,12 +29,17 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/icon-512x512.png`, // This path is relative to the root of the site.
       },
+
     },
     {
-      resolve: "gatsby-source-contentful",
+      resolve: "gatsby-source-graphql",
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        // Arbitrary name for the remote schema Query type
+        typeName: "SWAPI",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "swapi",
+        // Url to query from
+        url: "https://mongo-graph-taghrida.herokuapp.com",
       },
     },
     "gatsby-plugin-sass",

@@ -1,7 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import GoogleAd from "../components/GoogleAd"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -16,63 +14,63 @@ import SEO from "../components/seo"
 import RelatedPost from "../components/related"
 
 export const query = graphql`
-  query($slug: String!, $category: String!) {
-    blog: contentfulBlog(slug: { eq: $slug }) {
+query($id: ID!) {
+  swapi {
+    article(id: $id ) {
       title
-      tags
-      author
-      excerpt
-      thumb {
-        fluid {
-          src
-        }
-      }
-      createdAt(locale: "ar", formatString: "MMMM Do, YYYY")
-      body {
-        json
+    tags
+    author
+    cat{
+      title
+      articles(limit:4){
+        id
+        title
+        imgUri
+        slug
       }
     }
-    related: allContentfulBlog(filter: { category: { eq: $category } }) {
-      edges {
-        node {
-          slug
-          title
-          thumb {
-            fluid {
-              src
-            }
-          }
-        }
-      }
+    excerpt
+    imgUri
+    content
     }
   }
+}
 `
+
 
 const Blog = props => {
   const [hide, sethide] = React.useState("none")
-
+  const related = props.data.swapi.article.cat.articles.filter(function (ele) {
+    return ele.id !== props.pageContext.id;
+  });
   return (
     <Layout>
       <SEO
-        title={props.data.blog.title}
-        keywords={props.data.blog.tags}
-        image={props.data.blog.thumb.fluid.src}
+        title={props.data.swapi.article.title}
+        keywords={props.data.swapi.article.tags}
+        image={props.data.swapi.article.imgUri}
       />
       <div className="wrap blog">
-        <h1>{props.data.blog.title}</h1>
+        <h1>{props.data.swapi.article.title}</h1>
         <div className="thumb">
+
           <img
-            src={props.data.blog.thumb.fluid.src}
-            alt={props.data.blog.title}
+            src={props.data.swapi.article.imgUri}
+            alt={props.data.swapi.article.title}
           />
         </div>
 
         <div className="badgelist">
-          <p className="badge">{props.data.blog.createdAt}</p>
-          <p className="badge">{props.data.blog.author}</p>
+          <div><span>التصنيف: </span>
+            <Link to={`/category/${props.data.swapi.article.cat.title}`}>
+              <p className="badge">{props.data.swapi.article.cat.title}</p>
+            </Link>
+
+          </div>
+          <p className="badge">{props.data.swapi.article.author}</p>
         </div>
         <div className="content">
-          <p>{props.data.blog.excerpt}</p>
+          <p>{props.data.swapi.article.excerpt}</p>
           <div className="ads-more">
             <div className="ads1">
               <ins
@@ -93,9 +91,9 @@ const Blog = props => {
             </button>
           </div>
 
-          <div className="body-post" style={{ display: hide }}>
-            {documentToReactComponents(props.data.blog.body.json)}
-          </div>
+          <div className="body-post" style={{ display: hide }}
+            dangerouslySetInnerHTML={{ __html: props.data.swapi.article.content }} />
+
           <div className="ads1">
             <ins
               className="adsbygoogle"
@@ -110,29 +108,29 @@ const Blog = props => {
         <h3>شارك هذه المقالة</h3>
         <div className="share">
           <FacebookShareButton
-            quote={props.data.blog.title}
+            quote={props.data.swapi.article.title}
             url={props.location.href}
           >
             <FacebookIcon size={32} round={true} />
           </FacebookShareButton>
           <TwitterShareButton
-            title={props.data.blog.title}
+            title={props.data.swapi.article.title}
             url={props.location.href}
           >
             <TwitterIcon size={32} round={true} />
           </TwitterShareButton>
           <WhatsappShareButton
-            title={props.data.blog.title}
+            title={props.data.swapi.article.title}
             url={props.location.href}
           >
             <WhatsappIcon size={32} round={true} />
           </WhatsappShareButton>
         </div>
-        <RelatedPost related={props.data.related} />
+        <RelatedPost related={related} />
         <h3>كلمات ذات صلة: </h3>
         <div className="blog-footer">
           <div className="tags">
-            {props.data.blog.tags.map(t => (
+            {props.data.swapi.article.tags.map(t => (
               <Link to={`/tag/${t}`} key={t}>
                 <div className="badge">{t}</div>
               </Link>

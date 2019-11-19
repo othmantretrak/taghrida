@@ -1,45 +1,52 @@
 const path = require("path")
+const createPaginatedPages = require('gatsby-paginate')
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve("./src/templates/blog.js")
   const tagTemplate = path.resolve("./src/templates/tag.js")
+  const catTemplate = path.resolve("./src/templates/category.js")
   const res = await graphql(`
-    query {
-      allContentfulBlog {
-        edges {
-          node {
-            slug
-            category
+  query {
+    swapi {
+      articles {
+        id
+        author
+          tags
+          excerpt
+          slug
+          title
+          cat{
+            title
           }
-        }
+          imgUri
       }
     }
-  `)
+  }
+`)
 
-  res.data.allContentfulBlog.edges.forEach(edge => {
+  createPaginatedPages({
+    edges: res.data.swapi.articles,
+    createPage: createPage,
+    pageTemplate: 'src/templates/index.js',
+    pageLength: 5, // This is optional and defaults to 10 if not used
+    pathPrefix: '', // This is optional and defaults to an empty string if not used
+    context: {}, // This is optional and defaults to an empty object if not used
+  })
+
+  res.data.swapi.articles.forEach(article => {
+    const slug = decodeURIComponent(article.slug)
     createPage({
       component: blogTemplate,
-      path: `/${edge.node.slug}`,
+      path: `/${slug}`,
       context: {
-        slug: edge.node.slug,
-        category: edge.node.category,
+        id: article.id
       },
     })
   })
-  const tag = await graphql(`
-    query {
-      allContentfulBlog {
-        edges {
-          node {
-            tags
-          }
-        }
-      }
-    }
-  `)
-  tag.data.allContentfulBlog.edges.forEach(edge => {
-    edge.node.tags.forEach(tag => {
+
+  res.data.swapi.articles.forEach(article => {
+    article.tags.forEach(tag => {
       createPage({
         component: tagTemplate,
         path: `/tag/${tag}`,
@@ -47,6 +54,26 @@ module.exports.createPages = async ({ graphql, actions }) => {
           tag: tag,
         },
       })
+    })
+  })
+
+  const categories = await graphql(`
+  query {
+      swapi {
+      cats {
+        id
+        title
+      }
+    }
+  }
+`)
+  categories.data.swapi.cats.forEach(cat => {
+    createPage({
+      component: catTemplate,
+      path: `/category/${cat.title}`,
+      context: {
+        catId: cat.id,
+      },
     })
   })
 }

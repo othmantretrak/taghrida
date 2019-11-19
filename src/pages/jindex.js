@@ -6,24 +6,23 @@ import SEO from "../components/seo"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
-    query {
-      allContentfulBlog(sort: { fields: createdAt, order: DESC }) {
-        edges {
-          node {
+  query {
+    swapi {
+      articles(limit:10) {
+       
+          author
+          tags
+          excerpt
+          slug
+          title
+          cat{
             title
-            slug
-
-            thumb {
-              fluid {
-                src
-              }
-            }
-            createdAt(locale: "ar", formatString: "MMMM Do, YYYY")
           }
-        }
+          imgUri
       }
     }
-  `)
+  }
+`)
 
   return (
     <Layout>
@@ -33,18 +32,19 @@ const IndexPage = () => {
           <span className="heading-span">مواضيع</span>
         </h2>
         <div className="card-list">
-          {data.allContentfulBlog.edges.map(edge => {
+          {data.swapi.articles.map(edge => {
             return (
-              <div key={edge.node.slug} className="card">
-                <Link to={`/${edge.node.slug}`}>
+              <div key={edge.slug} className="card">
+                <Link to={`/${edge.slug}`}>
                   <div className="thumb">
-                    <img src={edge.node.thumb.fluid.src} alt="ff" />
+                    <img src={edge.imgUri} alt={edge.title} />
+
                   </div>
 
                   <div className="info">
-                    <h4>{edge.node.title}</h4>
+                    <h4>{edge.title}</h4>
                     <div className="meta">
-                      <span>{edge.node.createdAt}</span>
+                      <span>{edge.cat.title}</span>
                       <span>المزيد</span>
                     </div>
                   </div>

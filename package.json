@@ -1,15 +1,16 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ta4rida",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "webesite for ta4rida.com",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "otman tretrak",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.2.0",
     "dotenv": "^8.0.0",
     "env-cmd": "^9.0.1",
     "gatsby": "^2.4.3",
     "gatsby-image": "^2.0.41",
+    "gatsby-paginate": "^1.1.1",
     "gatsby-plugin-google-analytics": "^2.0.20",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.1.0",
@@ -18,8 +19,8 @@
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.37",
     "gatsby-plugin-sitemap": "^2.1.0",
-    "gatsby-source-contentful": "^2.0.56",
     "gatsby-source-filesystem": "^2.0.33",
+    "gatsby-source-graphql": "^2.1.22",
     "gatsby-transformer-sharp": "^2.1.19",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
@@ -37,11 +38,11 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "SET GATSBY_GRAPHQL_IDE=playground&gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
