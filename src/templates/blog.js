@@ -121,7 +121,7 @@ const Blog = props => {
           </TwitterShareButton>
           <WhatsappShareButton
             title={props.data.swapi.article.title}
-            url={props.location.href}
+
           >
             <WhatsappIcon size={32} round={true} />
           </WhatsappShareButton>
