@@ -37,7 +37,9 @@ const IndexPage = ({ pageContext }) => {
                                     <div className="info">
                                         <h4>{edge.title}</h4>
                                         <div className="meta">
-                                            <span>{edge.cat.title}</span>
+                                            <Link to={`/category/${edge.cat.title}`}>
+                                                <span>{edge.cat.title}</span>
+                                            </Link>
                                             <span>المزيد</span>
                                         </div>
                                     </div>

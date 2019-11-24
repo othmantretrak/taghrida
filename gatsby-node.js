@@ -9,7 +9,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const res = await graphql(`
   query {
     swapi {
-      articles {
+      articles(sort:"desc") {
         id
         author
           tags
