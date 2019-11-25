@@ -73,36 +73,32 @@ const Blog = props => {
           <p>{props.data.swapi.article.excerpt}</p>
           <div className="ads-more">
             <div className="ads1">
-              <ins
-                className="adsbygoogle"
-                style={{ display: "block" }}
+              <ins className="adsbygoogle"
+                style={{ display: "block", textAlign: "center" }}
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
                 data-ad-client="ca-pub-1063328225356164"
-                data-ad-slot="1340840638"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              />
+                data-ad-slot="2120056211"></ins>
             </div>
-            <button
+            {/* <button
               className="btn-hide"
               onClick={() => sethide("block")}
               style={{ display: hide === "block" ? "none" : "block" }}
             >
               أكمل قراءة الموضوع ...
-            </button>
+            </button> */}
           </div>
 
-          <div className="body-post" style={{ display: hide }}
+          <div className="body-post"
             dangerouslySetInnerHTML={{ __html: props.data.swapi.article.content }} />
 
           <div className="ads1">
-            <ins
-              className="adsbygoogle"
+            <ins className="adsbygoogle"
               style={{ display: "block" }}
               data-ad-client="ca-pub-1063328225356164"
-              data-ad-slot="1646471704"
+              data-ad-slot="5092374925"
               data-ad-format="auto"
-              data-full-width-responsive="true"
-            />
+              data-full-width-responsive="true"></ins>
           </div>
         </div>
         <h3>شارك هذه المقالة</h3>
