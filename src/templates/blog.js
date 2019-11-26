@@ -12,6 +12,8 @@ import {
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RelatedPost from "../components/related"
+import GoogleAd from "../components/GoogleAd"
+import InArticleAd from "../components/inArticleAd"
 
 export const query = graphql`
 query($id: ID!) {
@@ -73,12 +75,8 @@ const Blog = props => {
           <p>{props.data.swapi.article.excerpt}</p>
           <div className="ads-more">
             <div className="ads1">
-              <ins className="adsbygoogle"
-                style={{ display: "block", textAlign: "center" }}
-                data-ad-layout="in-article"
-                data-ad-format="fluid"
-                data-ad-client="ca-pub-1063328225356164"
-                data-ad-slot="2120056211"></ins>
+              <GoogleAd />
+
             </div>
             {/* <button
               className="btn-hide"
@@ -93,6 +91,7 @@ const Blog = props => {
             dangerouslySetInnerHTML={{ __html: props.data.swapi.article.content }} />
 
           <div className="ads1">
+            <InArticleAd />
             <ins className="adsbygoogle"
               style={{ display: "block" }}
               data-ad-client="ca-pub-1063328225356164"
@@ -117,7 +116,7 @@ const Blog = props => {
           </TwitterShareButton>
           <WhatsappShareButton
             title={props.data.swapi.article.title}
-
+            url={props.location.href}
           >
             <WhatsappIcon size={32} round={true} />
           </WhatsappShareButton>
