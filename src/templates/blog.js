@@ -8,6 +8,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share"
+import { FacebookProvider, Page } from 'react-facebook';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -47,6 +48,7 @@ const Blog = props => {
   });
   return (
     <Layout>
+
       <SEO
         title={props.data.swapi.article.title}
         keywords={props.data.swapi.article.tags}
@@ -121,6 +123,14 @@ const Blog = props => {
             <WhatsappIcon size={32} round={true} />
           </WhatsappShareButton>
         </div>
+
+        <div className="page-fb">
+          <span>إنضم إلينا على صفحتنا في الفيسبوك لتشاهد المزيد</span>
+          <FacebookProvider appId="991319730968312" language="ar_AR"  >
+            <Page href="https://www.facebook.com/ta4rida" tabs="timeline" />
+          </FacebookProvider>
+        </div>
+
         <RelatedPost related={related} />
         <h3>كلمات ذات صلة: </h3>
         <div className="blog-footer">

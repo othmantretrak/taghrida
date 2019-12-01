@@ -192,7 +192,16 @@ nav ul li {
     border-radius: 0.25rem;
   }
 }
-
+.page-fb{
+  text-align: center;
+  margin: 1rem;
+  span{
+    margin: 5px;
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #00aced;
+  }
+}
 .card-list .card .thumb {
   max-height: 220px;
   overflow: hidden;
