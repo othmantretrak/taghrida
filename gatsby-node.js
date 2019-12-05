@@ -46,15 +46,18 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
   res.data.swapi.articles.forEach(article => {
-    article.tags.forEach(tag => {
-      createPage({
-        component: tagTemplate,
-        path: `/tag/${tag}`,
-        context: {
-          tag
-        },
+    if (article.tags.length > 0) {
+      article.tags.forEach(tag => {
+        createPage({
+          component: tagTemplate,
+          path: `/tag/${tag}`,
+          context: {
+            tag
+          },
+        })
       })
-    })
+    }
+
   })
 
   const categories = await graphql(`
