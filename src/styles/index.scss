@@ -43,7 +43,33 @@ header {
     }
   }
 }
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -1000px;
+  width: 70%;
+  max-width: 400px;
+  background-image: -webkit-linear-gradient(85deg, #0a58c0 0, #00ade1 100%);
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(255, 255, 255, 0.05);
+  z-index: 200;
 
+  transition: right 0.2s ease-in;
+}
+.nav-active {
+  right: 0;
+  margin: 0;
+}
+.backdoor {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,15 +88,11 @@ nav {
 }
 
 nav ul {
-  position: absolute;
-  top: 8vh;
-  background-image: -webkit-linear-gradient(85deg, #0a58c0 0, #00ade1 100%);
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  transform: translateX(200%);
-  transition: transform 0.2s ease-in;
+
   a {
     text-decoration: none;
     color: white;
@@ -165,7 +187,6 @@ nav ul li {
   line-height: 1.5;
   padding: 1rem 0.75rem;
   color: #2c3e50;
-  
 }
 
 .card-list .card .info h4 {
@@ -181,7 +202,7 @@ nav ul li {
   -ms-flex-pack: justify;
   justify-content: space-between;
   font-size: 1rem;
-  span:nth-child(1){
+  span:nth-child(1) {
     color: #fff;
     background-color: #3498db;
     display: inline-block;
@@ -192,10 +213,10 @@ nav ul li {
     border-radius: 0.25rem;
   }
 }
-.page-fb{
+.page-fb {
   text-align: center;
   margin: 1rem;
-  span{
+  span {
     margin: 5px;
     display: inline-block;
     font-size: 1.2rem;
@@ -212,11 +233,11 @@ nav ul li {
 .card-list .card .thumb img {
   width: 100%;
 }
-.paginate{
+.paginate {
   display: flex;
   justify-content: space-evenly;
   margin: 10px 0px;
-  a{
+  a {
     text-decoration: none;
     background-color: #16a085;
     color: white;
@@ -237,7 +258,7 @@ nav ul li {
   .thumb {
     position: relative;
     text-align: center;
-    .cat{
+    .cat {
       position: absolute;
       margin-right: 10px;
       margin-top: 10px;
@@ -290,8 +311,6 @@ nav ul li {
     }
   }
 }
-
-
 
 .badgelist {
   display: flex;

@@ -15,7 +15,7 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <p>موقع تغريدة 2019 ©</p>
+      <p>موقع تغريدة 2020 ©</p>
       <p className="copyright">
         طور الموقع من طرف{" "}
         <a href={data.site.siteMetadata.authorUrl}>

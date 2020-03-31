@@ -2,6 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 
 import logo from "../images/logo.png"
+import Drawer from "../components/NavBar/Drawer"
+import TogglBtn from "../components/NavBar/TogglBtn"
+import BackDoor from "../components/NavBar/BackDoor"
 //import headerStyles from "./header.module.scss"
 
 const Header = () => {
@@ -10,58 +13,20 @@ const Header = () => {
   const openNav = () => {
     setNav(!nav)
   }
+  const closeNav = () => {
+    setNav(false)
+  }
   return (
     <header className="header">
       <div className="logo">
         <Link className="title" to="/">
-          <img src={logo} alt="taghrida logo" />
+          <img src={logo} alt="dagalaxy logo" />
         </Link>
       </div>
+      <Drawer nav={nav} />
+      {nav && <BackDoor closeNav={closeNav} />}
 
-      <nav>
-        <ul className={nav ? "navList nav-active" : "navList"}>
-          <li onClick={openNav}>
-            <Link className="navItem" activeClassName="activeNavItem" to="/">
-              الرئيسية
-            </Link>
-          </li>
-
-          <li onClick={openNav}>
-            <a
-              href="https://www.facebook.com/ta4rida"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navItem"
-            >
-              صفحتنا على فيسبوك
-            </a>
-          </li>
-          <li onClick={openNav}>
-            <Link
-              className="navItem"
-              activeClassName="activeNavItem"
-              to="/contact"
-            >
-              اتصل بنا
-            </Link>
-          </li>
-          <li onClick={openNav}>
-            <Link
-              className="navItem"
-              activeClassName="activeNavItem"
-              to="/privacy"
-            >
-              الخصوصية
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <div onClick={openNav} className={nav ? "bars toggle" : "bars"}>
-        <div className="line1" />
-        <div className="line2" />
-        <div className="line3" />
-      </div>
-
+      <TogglBtn openNav={openNav} nav={nav} />
     </header>
   )
 }
