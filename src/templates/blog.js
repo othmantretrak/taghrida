@@ -55,10 +55,23 @@ const Blog = props => {
       <div className="wrap blog">
         <h1>{props.data.swapi.article.title}</h1>
         <div className="thumb">
-          <img
-            src={props.data.swapi.article.imgUri}
-            alt={props.data.swapi.article.title}
-          />
+          <picture>
+            <source
+              media="(min-width: 1200px)"
+              srcSet={`${props.data.swapi.article.imgUri}?w=800&fit=fill&fm=webp`}
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 992px)"
+              srcSet={`${props.data.swapi.article.imgUri}?w=600&fit=fill&fm=webp`}
+              type="image/webp"
+            />
+
+            <img
+              src={`${props.data.swapi.article.imgUri}?w=400&fit=fill&fm=webp`}
+              alt={props.data.swapi.article.title}
+            />
+          </picture>
         </div>
 
         <div className="badgelist">
