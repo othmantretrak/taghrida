@@ -13,6 +13,11 @@ const NavLink = props => {
 }
 
 const IndexPage = ({ pageContext }) => {
+  useScript(
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+    "head",
+    true
+  )
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
