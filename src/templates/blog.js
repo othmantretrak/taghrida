@@ -44,8 +44,7 @@ export const query = graphql`
 const Blog = props => {
   useScript(
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-    "head",
-    true
+    "head"
   )
   const [hide, sethide] = React.useState("none")
   const related = props.data.swapi.article.cat.articles.filter(function(ele) {
