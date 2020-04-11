@@ -3,9 +3,10 @@ import { useEffect } from "react"
 const useScript = (url, position, async) => {
   useEffect(() => {
     const placement = document.querySelector(position)
-    const script = document.createElement("script");
+    const script = document.createElement("script")
 
-    script.data-ad-client = "ca-pub-1063328225356164";
+    script.setAttribute("data-ad-client", "ca-pub-1063328225356164")
+    //script.data-ad-client = "ca-pub-1063328225356164";
     script.src = url
     script.async = typeof async === "undefined" ? true : async
 
