@@ -89,7 +89,11 @@ const Blog = props => {
           <p className="badge">{props.data.swapi.article.author}</p>
         </div>
         <div className="content">
-          <p>{props.data.swapi.article.excerpt}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: props.data.swapi.article.excerpt,
+            }}
+          />
           {/* <div className="ads-more">
             <div className="ads1">
               <GoogleAd />
