@@ -8,7 +8,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share"
-import { FacebookProvider, Page } from "react-facebook"
+import { FacebookProvider, Like } from "react-facebook"
 //import useScript from "../hooks/useScript"
 
 import Layout from "../components/layout"
