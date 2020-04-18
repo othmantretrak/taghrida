@@ -14,8 +14,8 @@ import { FacebookProvider, Page } from "react-facebook"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RelatedPost from "../components/related"
-//import GoogleAd from "../components/GoogleAd"
-//import InArticleAd from "../components/inArticleAd"
+import GoogleAd from "../components/GoogleAd"
+import InArticleAd from "../components/inArticleAd"
 
 export const query = graphql`
   query($id: ID!) {
@@ -94,10 +94,11 @@ const Blog = props => {
               __html: props.data.swapi.article.excerpt,
             }}
           />
+          <div className="ads1">
+            <GoogleAd />
+          </div>
           {/* <div className="ads-more">
-            <div className="ads1">
-              <GoogleAd />
-            </div>
+            
              <button
               className="btn-hide"
               onClick={() => sethide("block")}
@@ -114,9 +115,9 @@ const Blog = props => {
             }}
           />
 
-          {/*<div className="ads1">
+          <div className="ads1">
             <InArticleAd />
-          </div>*/}
+          </div>
         </div>
         <h3>شارك هذه المقالة</h3>
         <div className="share">
