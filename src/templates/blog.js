@@ -14,8 +14,8 @@ import { FacebookProvider, Like } from "react-facebook"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RelatedPost from "../components/related"
-import GoogleAd from "../components/GoogleAd"
-import InArticleAd from "../components/inArticleAd"
+//import GoogleAd from "../components/GoogleAd"
+//import InArticleAd from "../components/inArticleAd"
 
 export const query = graphql`
   query($id: ID!) {
@@ -94,9 +94,9 @@ const Blog = props => {
               __html: props.data.swapi.article.excerpt,
             }}
           />
-          <div className="ads1">
+          {/* <div className="ads1">
             <GoogleAd />
-          </div>
+          </div> */}
           {/* <div className="ads-more">
             
              <button
@@ -114,10 +114,19 @@ const Blog = props => {
               __html: props.data.swapi.article.content,
             }}
           />
-
-          <div className="ads1">
-            <InArticleAd />
+          <div className="page-fb">
+            <FacebookProvider appId="991319730968312" language="ar_AR">
+              <Like
+                href="https://www.facebook.com/ta4rida"
+                colorScheme="light"
+                showFaces
+                share
+              />
+            </FacebookProvider>
           </div>
+          {/* <div className="ads1">
+            <InArticleAd />
+          </div> */}
         </div>
         <h3>شارك هذه المقالة</h3>
         <div className="share">
@@ -139,18 +148,6 @@ const Blog = props => {
           >
             <WhatsappIcon size={32} round={true} />
           </WhatsappShareButton>
-        </div>
-
-        <div className="page-fb">
-          <span>إنضم إلينا على صفحتنا في الفيسبوك لتشاهد المزيد</span>
-          <FacebookProvider appId="991319730968312" language="ar_AR">
-            <Like
-              href="https://www.facebook.com/ta4rida"
-              colorScheme="light"
-              showFaces
-              share
-            />
-          </FacebookProvider>
         </div>
 
         <RelatedPost related={related} />

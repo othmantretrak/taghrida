@@ -19,6 +19,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `@isamrish/gatsby-plugin-google-adsense`,
+      options: {
+        googleAdClientId: "ca-pub-1063328225356164",
+        head: false, // Optional
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `ta4rida`,
@@ -29,7 +36,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/icon-512x512.png`, // This path is relative to the root of the site.
       },
-
     },
     {
       resolve: "gatsby-source-graphql",
