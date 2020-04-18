@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { graphql, Link } from "gatsby"
 import {
   FacebookShareButton,
@@ -46,9 +46,7 @@ const Blog = props => {
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
     "head"
   )
-  useEffect(() => {
-    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-  }, [])
+
   const [hide, sethide] = React.useState("none")
   const related = props.data.swapi.article.cat.articles.filter(function(ele) {
     return ele.id !== props.pageContext.id

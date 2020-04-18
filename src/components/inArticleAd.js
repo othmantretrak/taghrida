@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 const InArticleAd = () => {
+  useEffect(() => {
+    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+  }, [])
   return (
     <ins
       className="adsbygoogle"
