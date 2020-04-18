@@ -18,13 +18,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `@isamrish/gatsby-plugin-google-adsense`,
-      options: {
-        googleAdClientId: "ca-pub-1063328225356164",
-        head: false, // Optional
-      },
-    },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
