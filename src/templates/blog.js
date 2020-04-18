@@ -9,7 +9,7 @@ import {
   WhatsappShareButton,
 } from "react-share"
 import { FacebookProvider, Page } from "react-facebook"
-import useScript from "../hooks/useScript"
+//import useScript from "../hooks/useScript"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -42,10 +42,10 @@ export const query = graphql`
 `
 
 const Blog = props => {
-  useScript(
+  /* useScript(
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
     "head"
-  )
+  ) */
   const [hide, sethide] = React.useState("none")
   const related = props.data.swapi.article.cat.articles.filter(function(ele) {
     return ele.id !== props.pageContext.id
