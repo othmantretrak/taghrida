@@ -144,7 +144,12 @@ const Blog = props => {
         <div className="page-fb">
           <span>إنضم إلينا على صفحتنا في الفيسبوك لتشاهد المزيد</span>
           <FacebookProvider appId="991319730968312" language="ar_AR">
-            <Page href="https://www.facebook.com/ta4rida" tabs="timeline" />
+            <Like
+              href="https://www.facebook.com/ta4rida"
+              colorScheme="light"
+              showFaces
+              share
+            />
           </FacebookProvider>
         </div>
 
