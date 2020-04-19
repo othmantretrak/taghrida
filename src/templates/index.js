@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-//import useScript from "../hooks/useScript"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,10 +13,6 @@ const NavLink = props => {
 }
 
 const IndexPage = ({ pageContext }) => {
-  /* useScript(
-    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-    "head"
-  ) */
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
