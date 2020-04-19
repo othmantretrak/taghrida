@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Markazi+Text:400,500");
+@import url("https://fonts.googleapis.com/css?family=Markazi+Text:400,500&display=swap");
 *,
 *::before,
 *::after {
@@ -18,7 +18,7 @@
 
 body {
   background: #ecf0f1;
-  font-family: "Markazi Text", serif;
+  font-family: "Markazi Text", Arial, Helvetica, sans-serif;
   direction: rtl;
   overflow-x: hidden;
 }
