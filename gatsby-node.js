@@ -1,5 +1,5 @@
 const path = require("path")
-const createPaginatedPages = require('gatsby-paginate')
+const createPaginatedPages = require("gatsby-paginate")
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -7,30 +7,30 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve("./src/templates/tag.js")
   const catTemplate = path.resolve("./src/templates/category.js")
   const res = await graphql(`
-  query {
-    swapi {
-      articles(sort:"desc") {
-        id
-        author
+    query {
+      swapi {
+        articles(sort: "desc") {
+          id
+          author
           tags
           excerpt
           slug
           title
-          cat{
+          cat {
             title
           }
           imgUri
+        }
       }
     }
-  }
-`)
+  `)
 
   createPaginatedPages({
     edges: res.data.swapi.articles,
     createPage: createPage,
-    pageTemplate: 'src/templates/index.js',
+    pageTemplate: "src/templates/index.js",
     pageLength: 16, // This is optional and defaults to 10 if not used
-    pathPrefix: '', // This is optional and defaults to an empty string if not used
+    pathPrefix: "", // This is optional and defaults to an empty string if not used
     context: {}, // This is optional and defaults to an empty object if not used
   })
 
@@ -40,7 +40,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       component: blogTemplate,
       path: `/${slug}`,
       context: {
-        id: article.id
+        id: article.id,
       },
     })
   })
@@ -52,24 +52,23 @@ module.exports.createPages = async ({ graphql, actions }) => {
           component: tagTemplate,
           path: `/tag/${tag}`,
           context: {
-            tag
+            tag,
           },
         })
       })
     }
-
   })
 
   const categories = await graphql(`
-  query {
+    query {
       swapi {
-      cats {
-        id
-        title
+        cats {
+          id
+          title
+        }
       }
     }
-  }
-`)
+  `)
   categories.data.swapi.cats.forEach(cat => {
     createPage({
       component: catTemplate,
