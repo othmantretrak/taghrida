@@ -30,7 +30,7 @@
   </head>
   <body>
     <div class="App">
-      <form class="form" action="to.html">
+      <form class="form" action="ramadan/to.html">
         <div class="containerindex">
           <img
             src="https://images.ctfassets.net/9qx0z62w952c/7bKZE8KDeHaf2TbmCkBUKs/cc15d0d4b06e11883575ba1acab2814c/logo.png"
@@ -76,31 +76,31 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"></script>
     <script>
-      const form = document.querySelector("form");
-      const input = document.querySelector("input");
+      const form = document.querySelector("form")
+      const input = document.querySelector("input")
 
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", e => {
         if (input.value.trim().length < 1) {
-          console.log(input.value.trim().length);
-          e.preventDefault();
+          console.log(input.value.trim().length)
+          e.preventDefault()
         }
-      });
+      })
 
-      const namestr = document.querySelector(".name-label");
+      const namestr = document.querySelector(".name-label")
 
       function r(min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.random() * (max - min) + min
       }
-      let i = 0;
-      setInterval(function () {
+      let i = 0
+      setInterval(function() {
         confetti({
           angle: i,
           spread: r(100, 170),
           particleCount: r(100, 300),
-        });
-        i += 100;
-        i = i % 160;
-      }, 2000);
+        })
+        i += 100
+        i = i % 160
+      }, 2000)
     </script>
   </body>
 </html>

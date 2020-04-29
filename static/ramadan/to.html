@@ -215,38 +215,38 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"></script>
     <script>
-      const namestr = document.querySelector(".name-label");
-      const namespan = document.querySelector("h1 span");
+      const namestr = document.querySelector(".name-label")
+      const namespan = document.querySelector("h1 span")
 
-      const g = document.querySelector(".name-rama");
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const name = urlParams.get("name");
-      const gen = urlParams.get("g");
-      namestr.textContent = name;
-      namespan.textContent = name;
+      const g = document.querySelector(".name-rama")
+      const queryString = window.location.search
+      const urlParams = new URLSearchParams(queryString)
+      const name = urlParams.get("name")
+      const gen = urlParams.get("g")
+      namestr.textContent = name
+      namespan.textContent = name
       document.querySelector(
         ".share-whatsapp"
-      ).href = `https://api.whatsapp.com/send?text=${name}  يتمنى لك رمضان كريم قم أنت كذالك بتهنئة أصدقائك علي الرابط التالي `;
+      ).href = `https://api.whatsapp.com/send?text=${name}  يتمنى لك رمضان كريم قم أنت كذالك بتهنئة أصدقائك علي الرابط التالي ${window.location.href}`
       document.querySelector(
         ".share-messenger"
-      ).href = `fb-messenger://share/?link=${window.location.href}&app_id=991319730968312`;
-      let zbbi = gen === "m" ? "يتمنى لك رمضان كريم" : "تتمنى لك رمضان كريم";
-      g.textContent = zbbi;
+      ).href = `fb-messenger://share/?link=${window.location.href}&app_id=991319730968312`
+      let zbbi = gen === "m" ? "يتمنى لك رمضان كريم" : "تتمنى لك رمضان كريم"
+      g.textContent = zbbi
       function b(min, max) {
-        return Math.round(Math.random() * (max - min) + min);
+        return Math.round(Math.random() * (max - min) + min)
       }
-      const wish = document.querySelector(".wish");
+      const wish = document.querySelector(".wish")
       const arrimg = [
         "https://images.ctfassets.net/9qx0z62w952c/6cPbE6hPFPtvAWBmJr55LD/2a16a44fae4ca5eb47beaed353ec71e9/rmd-2.jpg",
         "https://images.ctfassets.net/9qx0z62w952c/01dJSVshKllTawzdNFsXYk/39e61db8c15ccd20644d4fa518170900/rmd-3.jpg",
         "https://images.ctfassets.net/9qx0z62w952c/676DFBa7cMXepe7oB3u6Nm/3480adc1f5e014342b5294cfffe83468/rmd-4.jpg",
         "https://images.ctfassets.net/9qx0z62w952c/4R8IsAJoniJ2vxYWLq7bAL/368061998aad85d308d761e89ccee9f4/test.jpg",
-      ];
-      wish.style.backgroundImage = `url('${arrimg[b(0, 3)]}')`;
+      ]
+      wish.style.backgroundImage = `url('${arrimg[b(0, 3)]}')`
 
       function r(min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.random() * (max - min) + min
       }
 
       /*confetti({
@@ -254,16 +254,16 @@
     spread: r(50, 70),
     particleCount: r(50, 100)
 });*/
-      let i = 0;
-      setInterval(function () {
+      let i = 0
+      setInterval(function() {
         confetti({
           angle: i,
           spread: r(100, 170),
           particleCount: r(100, 300),
-        });
-        i += 100;
-        i = i % 160;
-      }, 2000);
+        })
+        i += 100
+        i = i % 160
+      }, 2000)
     </script>
   </body>
 </html>

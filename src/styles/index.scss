@@ -224,6 +224,24 @@ nav ul li {
     color: #00aced;
   }
 }
+.ramadan {
+  width: 80%;
+  text-align: center;
+  background-color: #00bcd433;
+  border-radius: 12px;
+  margin: 0 auto;
+  .ramadan-btn {
+    border: 0;
+    outline: none;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    background: #ffc21d;
+    font-size: 22px;
+    color: #0a0a0a;
+  }
+}
 .card-list .card .thumb {
   max-height: 220px;
   overflow: hidden;
