@@ -119,7 +119,9 @@ img {
   position: relative;
   right: 8%;
 }
-
+.ramadan-ads {
+  margin-bottom: 14px;
+}
 .name-label {
   font-size: 41px;
 }
@@ -163,6 +165,7 @@ a {
 .create-one {
   background: #34b7f1;
   color: white;
+  display: inherit;
 }
 .footer {
   overflow-x: hidden;
