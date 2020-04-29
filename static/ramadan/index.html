@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="في هذه الصفحة يمكنك تهنئة أصدقائك وعائلتك بمناسبة شهر رمضان الكريم، من خلال تقديم هدية جميلة."
+    />
+    <meta name="keywords" content="رمضان،تهنئة رمضان،هدية رمضان" />
+
+    <meta property="og:url" content="https://ta4rida.com/ramadan" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="تهنئة أصدقائك وعائلتك بمناسبة شهر رمضان الكريم"
+    />
+    <meta
+      property="og:description"
+      content="في هذه الصفحة يمكنك تهنئة أصدقائك وعائلتك بمناسبة شهر رمضان الكريم، من خلال تقديم هدية جميلة."
+    />
+    <meta
+      property="og:image"
+      content="https://images.ctfassets.net/9qx0z62w952c/3izLCzn9mGY2rxu0yMlDLr/7a718151bcf02bc86905d5d2768a5838/ramadan_2.jpg"
+    />
+
+    <link rel="stylesheet" href="/anim.css" />
+    <link rel="stylesheet" href="/App.css" />
+    <title>ramadan</title>
+  </head>
+  <body>
+    <div class="App">
+      <form class="form" action="to.html">
+        <div class="containerindex">
+          <img
+            src="https://images.ctfassets.net/9qx0z62w952c/7bKZE8KDeHaf2TbmCkBUKs/cc15d0d4b06e11883575ba1acab2814c/logo.png"
+            id="logoindex"
+            class="animated infinite swing"
+            alt=""
+          />
+          <div class="inputindex">
+            <label htmlFor="اكتب اسمك ( بالعربية أحسن)  : "
+              >اكتب اسمك ( بالعربية أحسن)
+            </label>
+            <input
+              placeholder="الإسم  "
+              type="text"
+              class="name"
+              name="name"
+              autocomplete="off"
+            />
+            <div class="radio">
+              <div>
+                <input type="radio" id="male" name="g" value="m" />
+                <label for="male">ذكر</label>
+              </div>
+              <div>
+                <input type="radio" id="female" name="g" value="f" />
+                <label for="female">أنثى</label>
+              </div>
+            </div>
+
+            <button type="submit" class="sub">
+              تهنئة
+            </button>
+          </div>
+        </div>
+      </form>
+      <footer>
+        <ul>
+          <li><a href="https://www.ta4rida.com/privacy">سياسة الخصوصية</a></li>
+          <li>ta4rida.com ©2020</li>
+        </ul>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"></script>
+    <script>
+      const form = document.querySelector("form");
+      const input = document.querySelector("input");
+
+      form.addEventListener("submit", (e) => {
+        if (input.value.trim().length < 1) {
+          console.log(input.value.trim().length);
+          e.preventDefault();
+        }
+      });
+
+      const namestr = document.querySelector(".name-label");
+
+      function r(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      let i = 0;
+      setInterval(function () {
+        confetti({
+          angle: i,
+          spread: r(100, 170),
+          particleCount: r(100, 300),
+        });
+        i += 100;
+        i = i % 160;
+      }, 2000);
+    </script>
+  </body>
+</html>

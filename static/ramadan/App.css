@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Almarai&display=swap");
+html {
+}
+
+body {
+  padding: 0;
+  margin-bottom: 41px;
+  background-image: url("https://images.ctfassets.net/9qx0z62w952c/2mQ46yoxmLUbNnGnC9s0Om/534dc1c41fda0bbcd8025fe5abc20ae9/path.jpg");
+  direction: rtl;
+  overflow-x: hidden;
+  position: relative;
+  font-family: "Almarai", sans-serif;
+}
+.App {
+  overflow-x: hidden;
+}
+h1 {
+  background-color: wheat;
+  text-align: center;
+  border-radius: 8px;
+  padding: 11px 0;
+}
+h1 span {
+  color: #199a19;
+}
+article {
+  background-color: white;
+  padding: 1rem 2rem;
+  line-height: 1.7;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.container {
+  margin: auto;
+  width: 324px;
+  height: 500px;
+  background-color: white;
+  margin-top: 50px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: rgb(0, 0, 0, 0.3);
+  color: white;
+  padding: 1rem;
+  font-size: large;
+}
+.radio {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.radio div {
+  margin: 1rem;
+}
+.inputindex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  font-family: "Almarai", sans-serif;
+  font-size: large;
+}
+.form {
+  margin-bottom: 2rem;
+}
+.containerindex {
+  margin: auto;
+  width: 324px;
+  height: 500px;
+  background-color: white;
+  margin-top: 50px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+input[type="text"] {
+  width: 250px;
+  height: 10px;
+  z-index: 100;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid black;
+  outline: 0;
+  font-family: "Almarai", sans-serif;
+  font-size: large;
+  margin-top: 1rem;
+}
+.sub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 44px;
+  margin-top: 15px;
+  border-radius: 15px;
+  border: 0;
+  background: #ffce4a;
+  color: black;
+  font-family: "Almarai", sans-serif;
+  outline: 0;
+  font-size: large;
+}
+
+.sub:hover {
+  background: #ffc21d;
+}
+
+img {
+  width: 274px;
+  height: 268px;
+  position: relative;
+  right: 8%;
+}
+
+.name-label {
+  font-size: 41px;
+}
+
+.name-rama {
+  font-size: 30px;
+}
+
+a {
+  border: 0;
+  outline: none;
+  border-radius: 15px;
+  text-decoration: none;
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+.wish {
+  height: 100%;
+  background-image: url("https://images.ctfassets.net/9qx0z62w952c/4R8IsAJoniJ2vxYWLq7bAL/368061998aad85d308d761e89ccee9f4/test.jpg");
+  background-size: contain;
+  border-radius: inherit;
+}
+#confetti {
+  position: absolute;
+}
+.share-whatsapp {
+  background: #25d366;
+  color: white;
+}
+.share-messenger {
+  background: rgb(24, 118, 242);
+  color: white;
+}
+
+.share {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-one {
+  background: #34b7f1;
+  color: white;
+}
+.footer {
+  overflow-x: hidden;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 20px;
+}
+footer {
+  background-color: white;
+  border-radius: 7px;
+  font-size: 14px;
+  margin: 0;
+  padding: 0.6rem;
+}
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 5px;
+}
+footer ul li {
+}
+.logo {
+  width: 274px;
+  height: 268px;
+  position: relative;
+  right: 8%;
+}
