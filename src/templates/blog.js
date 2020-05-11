@@ -26,7 +26,7 @@ export const query = graphql`
         author
         cat {
           title
-          articles(limit: 4) {
+          articles(limit: 10) {
             id
             title
             imgUri
@@ -48,9 +48,10 @@ const Blog = props => {
   ) */
 
   const [hide, sethide] = React.useState("none")
-  const related = props.data.swapi.article.cat.articles.filter(function(ele) {
+  let related = props.data.swapi.article.cat.articles.filter(function(ele) {
     return ele.id !== props.pageContext.id
   })
+  related = related.reverse()
   return (
     <Layout>
       <SEO
