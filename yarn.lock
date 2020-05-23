@@ -4377,6 +4377,10 @@ enhanced-resolve@^4.1.0:
     memory-fs "^0.4.0"
     tapable "^1.0.0"
 
+ent@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ent/-/ent-2.2.0.tgz#e964219325a21d05f44466a2f686ed6ce5f5dd1d"
+
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
@@ -7779,7 +7783,7 @@ lodash._reinterpolate@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
 
-lodash.clonedeep@4.5.0:
+lodash.clonedeep@4.5.0, lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
 
@@ -7802,6 +7806,10 @@ lodash.foreach@^4.5.0:
 lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
+lodash.isplainobject@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
 
 lodash.map@^4.6.0:
   version "4.6.0"
@@ -7836,9 +7844,17 @@ lodash.toarray@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.toarray/-/lodash.toarray-4.4.0.tgz#24c4bfcd6b2fba38bfd0594db1179d8e9b656561"
 
+lodash.trim@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/lodash.trim/-/lodash.trim-4.5.1.tgz#36425e7ee90be4aa5e27bcebb85b7d11ea47aa57"
+
 lodash.uniq@4.5.0, lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+
+lodash.without@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
 
 lodash@^4.0.0, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
   version "4.17.11"
@@ -10049,6 +10065,30 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
 
+ranges-apply@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/ranges-apply/-/ranges-apply-3.1.8.tgz#1da83906173c3c65ea7bcde5a84cc82ed1ccf732"
+  dependencies:
+    ranges-merge "^4.3.7"
+
+ranges-merge@^4.3.7:
+  version "4.3.7"
+  resolved "https://registry.yarnpkg.com/ranges-merge/-/ranges-merge-4.3.7.tgz#f96638cb1e8528011cb629a5f4ace0180e840e35"
+  dependencies:
+    ranges-sort "^3.11.6"
+
+ranges-push@^3.7.12:
+  version "3.7.12"
+  resolved "https://registry.yarnpkg.com/ranges-push/-/ranges-push-3.7.12.tgz#88548bee645c65fe0d2a2c44eb4371c6b5781958"
+  dependencies:
+    ranges-merge "^4.3.7"
+    string-collapse-leading-whitespace "^2.0.20"
+    string-trim-spaces-only "^2.8.17"
+
+ranges-sort@^3.11.6:
+  version "3.11.6"
+  resolved "https://registry.yarnpkg.com/ranges-sort/-/ranges-sort-3.11.6.tgz#02385bc90533f7a695c3ab1afff953bdb6396018"
+
 raw-body@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.4.0.tgz#a1ce6fb9c9bc356ca52e89256ab59059e13d0332"
@@ -11495,6 +11535,17 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
 
+string-collapse-leading-whitespace@^2.0.20:
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/string-collapse-leading-whitespace/-/string-collapse-leading-whitespace-2.0.20.tgz#60f2ed3b8ae39d3391d370fbef9effcddf0494be"
+
+string-left-right@^2.3.23:
+  version "2.3.23"
+  resolved "https://registry.yarnpkg.com/string-left-right/-/string-left-right-2.3.23.tgz#4ad41af83b24ac690fce231bec8417ddcf171cb3"
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    lodash.isplainobject "^4.0.6"
+
 string-length@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/string-length/-/string-length-3.1.0.tgz#107ef8c23456e187a8abd4a61162ff4ac6e25837"
@@ -11511,6 +11562,22 @@ string-similarity@^1.2.2:
     lodash.foreach "^4.5.0"
     lodash.map "^4.6.0"
     lodash.maxby "^4.6.0"
+
+string-strip-html@^4.4.5:
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/string-strip-html/-/string-strip-html-4.4.5.tgz#a8ddf86b28cf4860ec007be271ea95213112821f"
+  dependencies:
+    ent "^2.2.0"
+    lodash.isplainobject "^4.0.6"
+    lodash.trim "^4.5.1"
+    lodash.without "^4.4.0"
+    ranges-apply "^3.1.8"
+    ranges-push "^3.7.12"
+    string-left-right "^2.3.23"
+
+string-trim-spaces-only@^2.8.17:
+  version "2.8.17"
+  resolved "https://registry.yarnpkg.com/string-trim-spaces-only/-/string-trim-spaces-only-2.8.17.tgz#2fdc062ce3825ac8adad9902dd15527b19ab69e6"
 
 string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"

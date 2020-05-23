@@ -29,7 +29,8 @@
     "react-dom": "^16.8.6",
     "react-facebook": "^8.1.4",
     "react-helmet": "^5.2.1",
-    "react-share": "^3.0.0"
+    "react-share": "^3.0.0",
+    "string-strip-html": "^4.4.5"
   },
   "devDependencies": {
     "prettier": "^1.17.0"
