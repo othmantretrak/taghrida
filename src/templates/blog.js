@@ -136,7 +136,7 @@ const Blog = props => {
             <InArticleAd />
           </div>
         </div>
-        <div className="ramadan">
+        {/* <div className="ramadan">
           <p className="ramadan-p">
             بمناسبة شهر رمضان الكريم يمكنك إنشاء تهنئة خاصة بك وارسالها إلى
             عائلتك و أصدقائك من هنا :
@@ -144,7 +144,7 @@ const Blog = props => {
           <a className="ramadan-btn" href="https://www.ta4rida.com/ramadan">
             إنشاء تهنئة خاصة
           </a>
-        </div>
+        </div> */}
         <h3>شارك هذه المقالة</h3>
         <div className="share">
           <FacebookShareButton
