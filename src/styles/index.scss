@@ -315,6 +315,7 @@ nav ul li {
     padding: 0.7rem 0;
     .tags {
       display: flex;
+      flex-wrap: wrap;
       .badge {
         margin: 5px;
         color: #fff;

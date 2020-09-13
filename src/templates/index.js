@@ -64,10 +64,10 @@ const IndexPage = ({ pageContext }) => {
         </div>
         <div className="paginate">
           <div className="previousLink">
-            <NavLink test={first} url={previousUrl} text="الصفحة السابقة" />
+            <NavLink test={first} url={previousUrl} text="الصفحة الموالية" />
           </div>
           <div className="nextLink">
-            <NavLink test={last} url={nextUrl} text="الصفحة الموالية" />
+            <NavLink test={last} url={nextUrl} text="الصفحة السابقة" />
           </div>
         </div>
       </div>
