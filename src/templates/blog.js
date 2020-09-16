@@ -1,14 +1,6 @@
 import React from "react"
 import stripHtml from "string-strip-html"
 import { graphql, Link } from "gatsby"
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  WhatsappIcon,
-  WhatsappShareButton,
-} from "react-share"
 import { FacebookProvider, Like } from "react-facebook"
 //import useScript from "../hooks/useScript"
 
@@ -17,6 +9,7 @@ import SEO from "../components/seo"
 import RelatedPost from "../components/related"
 import GoogleAd from "../components/GoogleAd"
 import InArticleAd from "../components/inArticleAd"
+import Share from "../components/Share"
 
 export const query = graphql`
   query($id: ID!) {
@@ -146,26 +139,10 @@ const Blog = props => {
           </a>
         </div> */}
         <h3>شارك هذه المقالة</h3>
-        <div className="share">
-          <FacebookShareButton
-            quote={props.data.swapi.article.title}
-            url={props.location.href}
-          >
-            <FacebookIcon size={32} round={true} />
-          </FacebookShareButton>
-          <TwitterShareButton
-            title={props.data.swapi.article.title}
-            url={props.location.href}
-          >
-            <TwitterIcon size={32} round={true} />
-          </TwitterShareButton>
-          <WhatsappShareButton
-            title={props.data.swapi.article.title}
-            url={props.location.href}
-          >
-            <WhatsappIcon size={32} round={true} />
-          </WhatsappShareButton>
-        </div>
+        <Share
+          title={props.data.swapi.article.title}
+          url={props.location.href}
+        />
 
         <RelatedPost related={related} />
         {props.data.swapi.article.tags.length > 0 && (
