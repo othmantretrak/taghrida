@@ -7,7 +7,7 @@ const BannerAd = () => {
   return (
     <ins
       className="adsbygoogle"
-      style={{ display: "inline-block", height: "92px" }}
+      style={{ display: "block" }}
       data-ad-client="ca-pub-1063328225356164"
       data-ad-slot="1862075576"
       data-ad-format="auto"

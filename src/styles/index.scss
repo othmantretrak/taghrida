@@ -493,7 +493,6 @@ footer {
 /* ads banner */
 .adsbanner {
   position: fixed;
-  height: 52px;
   width: 100%;
   bottom: 0;
   z-index: 100;
@@ -518,10 +517,6 @@ footer {
   }
 }
 @media (min-width: 992px) {
-  .blog {
-    img {
-    }
-  }
   .adsbanner {
     display: none;
   }
