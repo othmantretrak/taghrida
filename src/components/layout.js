@@ -20,9 +20,12 @@ const Layout = props => {
         <GoogleAd />
         {props.children}
       </div>
-      <div className="adsbanner" style={{ maxHeight: "92px !important" }}>
-        <BannerAd />
+      <div style={{ maxHeight: "92px !important" }}>
+        <div className="adsbanner" style={{ maxHeight: "92px !important" }}>
+          <BannerAd />
+        </div>
       </div>
+
       <Footer />
     </div>
   )
