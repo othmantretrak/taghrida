@@ -490,6 +490,14 @@ footer {
   }
 }
 /* related */
+/* ads banner */
+.adsbanner {
+  position: fixed;
+  height: 52px;
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+}
 
 .list-card {
   display: grid;
@@ -513,6 +521,9 @@ footer {
   .blog {
     img {
     }
+  }
+  .adsbanner {
+    display: none;
   }
   nav ul.nav-active {
     transform: translateX(59%);

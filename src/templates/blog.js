@@ -57,6 +57,7 @@ const Blog = props => {
           160
         )}...`}
       />
+
       <div className="wrap blog">
         <h1>{props.data.swapi.article.title}</h1>
         <div className="thumb">
