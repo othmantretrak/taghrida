@@ -1,0 +1,13 @@
+diff --git a/node_modules/imagemin-pngquant/index.js b/node_modules/imagemin-pngquant/index.js
+index 6a163bc..275d28b 100644
+--- a/node_modules/imagemin-pngquant/index.js
++++ b/node_modules/imagemin-pngquant/index.js
+@@ -58,7 +58,7 @@ module.exports = (options = {}) => input => {
+ 	const promise = cp
+ 		.then(result => result.stdout)
+ 		.catch(error => {
+-			if (error.code === 99) {
++			if (error.exitCode === 99) {
+ 				return input;
+ 			}
+ 
