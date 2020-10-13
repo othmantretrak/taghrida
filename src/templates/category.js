@@ -54,7 +54,7 @@ const category = props => {
                   </div>
 
                   <div className="info">
-                    <h4>{article.title}></h4>
+                    <h4>{article.title}</h4>
                     <div className="meta">
                       <span>المزيد</span>
                     </div>

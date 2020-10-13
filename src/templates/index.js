@@ -28,46 +28,47 @@ const IndexPage = ({ pageContext }) => {
           {group.map(edge => {
             return (
               <div key={edge.slug} className="card">
-                <Link to={`/${edge.slug}`}>
-                  <div className="thumb">
-                    <picture>
-                      <source
-                        media="(min-width: 1200px)"
-                        srcSet={`${edge.imgUri}?w=800&fit=fill&fm=webp`}
-                        type="image/webp"
-                      />
-                      <source
-                        media="(min-width: 992px)"
-                        srcSet={`${edge.imgUri}?w=600&fit=fill&fm=webp`}
-                        type="image/webp"
-                      />
-                      <img
-                        src={`${edge.imgUri}?w=400&fit=fill&fm=webp`}
-                        alt={edge.title}
-                      />
-                    </picture>
-                  </div>
-
-                  <div className="info">
-                    <h4>{edge.title}</h4>
-                    <div className="meta">
-                      <Link to={`/category/${edge.cat.title}`}>
-                        <span>{edge.cat.title}</span>
-                      </Link>
-                      <span>المزيد</span>
+                <div className="info-thumb">
+                  <Link to={`/${edge.slug}`}>
+                    <div className="thumb">
+                      <picture>
+                        <source
+                          media="(min-width: 1200px)"
+                          srcSet={`${edge.imgUri}?w=800&fit=fill&fm=webp`}
+                          type="image/webp"
+                        />
+                        <source
+                          media="(min-width: 992px)"
+                          srcSet={`${edge.imgUri}?w=600&fit=fill&fm=webp`}
+                          type="image/webp"
+                        />
+                        <img
+                          src={`${edge.imgUri}?w=400&fit=fill&fm=webp`}
+                          alt={edge.title}
+                        />
+                      </picture>
                     </div>
-                  </div>
-                </Link>
+
+                    <h4>{edge.title}</h4>
+                  </Link>
+                </div>
+
+                <div className="meta">
+                  <Link to={`/category/${edge.cat.title}`}>
+                    <span>{edge.cat.title}</span>
+                  </Link>
+                  <span>المزيد</span>
+                </div>
               </div>
             )
           })}
         </div>
         <div className="paginate">
           <div className="previousLink">
-            <NavLink test={first} url={previousUrl} text="الصفحة الموالية" />
+            <NavLink test={first} url={previousUrl} text="الصفحة السابقة" />
           </div>
           <div className="nextLink">
-            <NavLink test={last} url={nextUrl} text="الصفحة السابقة" />
+            <NavLink test={last} url={nextUrl} text="الصفحة الموالية" />
           </div>
         </div>
       </div>

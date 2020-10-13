@@ -1,5 +1,10 @@
-const path = require("path")
+const path = require(`path`)
+const React = require("react")
+const ReactDOMServer = require("react-dom/server")
 const createPaginatedPages = require("gatsby-paginate")
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+const { fluid } = require(`gatsby-plugin-sharp`)
+const Img = require(`gatsby-image`)
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -20,6 +25,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             title
           }
           imgUri
+          images
         }
       }
     }
@@ -41,6 +47,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
       path: `/${slug}`,
       context: {
         id: article.id,
+        img: article.imgUri,
+        images: article.images,
       },
     })
   })
@@ -78,4 +86,105 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  cache,
+  createNodeId,
+  reporter,
+}) => {
+  const { createNode, deletePage, createPage } = actions
+
+  if (node.internal.type === "SitePage") {
+    if (node.context && node.context.img) {
+      if (!node.context.modified) {
+        let elementorData = { img: node.context.img }
+        if (node.context.images && node.context.images.length > 0) {
+          elementorData.images = node.context.images
+        }
+
+        if (elementorData) {
+          deletePage(node)
+
+          async function downloadImages() {
+            let fileNode = await createRemoteFileNode({
+              url: elementorData.img,
+              parentNodeId: node.id,
+              store,
+              cache,
+              createNode,
+              createNodeId: id => `elementor-images-ru`,
+            })
+            let generatedImage = await generateImage({
+              fileNode,
+              cache,
+              reporter,
+            })
+            elementorData.img = generatedImage
+            //_________________
+
+            if (node.context.images && node.context.images.length > 0) {
+              for (let i = 0; i < node.context.images.length; i++) {
+                let fileNode = await createRemoteFileNode({
+                  url: node.context.images[i],
+                  parentNodeId: node.id,
+                  store,
+                  cache,
+                  createNode,
+                  createNodeId: id => `elementor-images-${i}`,
+                })
+
+                let generatedImage = await generateImage({
+                  fileNode,
+                  cache,
+                  reporter,
+                })
+                elementorData.images[i] = generatedImage
+              }
+            }
+
+            //______________
+          }
+
+          const generateImage = async function({ fileNode, cache, reporter }) {
+            if (!fileNode || !fileNode.absolutePath) return
+
+            let fluidResult = await fluid({
+              file: fileNode,
+              args: {
+                withWebp: true,
+                maxWidth: 768,
+                toFormat: "WEBP",
+                tracedSVG: false,
+              },
+              reporter,
+              cache,
+            })
+
+            return fluidResult
+
+            // const imgOptions = {
+            //   fluid: fluidResult,
+            // }
+            // const ReactImgEl = React.createElement(Img.default, imgOptions, null)
+
+            // return ReactDOMServer.renderToString(ReactImgEl)
+          }
+
+          await downloadImages().then(fileNode => {
+            createPage({
+              ...node,
+              context: {
+                ...node.context,
+                modifiedData: elementorData,
+                modified: true,
+              },
+            })
+          })
+        }
+      }
+    }
+  }
 }
