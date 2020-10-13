@@ -34,29 +34,20 @@ module.exports = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-        // Arbitrary name for the remote schema Query type
         typeName: "SWAPI",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "swapi",
-        // Url to query from
         url: "https://mongo-graph-taghrida.herokuapp.com",
       },
     },
     "gatsby-plugin-sass",
-    "gatsby-plugin-sharp",
     `gatsby-plugin-sitemap`,
     "gatsby-plugin-robots-txt",
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-140496617-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
       },
     },
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
