@@ -7,6 +7,7 @@ module.exports = {
     authorUrl: "http://otmantretrak.com",
     siteUrl: `https://www.ta4rida.com`,
   },
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -31,6 +32,7 @@ module.exports = {
         icon: `src/images/icon-512x512.png`, // This path is relative to the root of the site.
       },
     },
+    //(process.env.GATSBY_CONCURRENT_DOWNLOAD = 1),
     {
       resolve: "gatsby-source-graphql",
       options: {

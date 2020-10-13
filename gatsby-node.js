@@ -1,10 +1,11 @@
 const path = require(`path`)
-const React = require("react")
-const ReactDOMServer = require("react-dom/server")
 const createPaginatedPages = require("gatsby-paginate")
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const { fluid } = require(`gatsby-plugin-sharp`)
-const Img = require(`gatsby-image`)
+const sharp = require("sharp")
+
+sharp.cache(false)
+sharp.simd(false)
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
