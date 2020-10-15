@@ -274,11 +274,17 @@ nav ul li {
     background-color: gainsboro;
     display: inline-block;
     color: #0a4f86;
-    margin-top: 27px;
+    margin: 27px;
+  }
+  h2 {
+    margin: 20px;
   }
   .thumb {
     position: relative;
-    text-align: center;
+    position: relative;
+    width: 85vw;
+    max-width: 674px;
+    margin-bottom: 5px;
     .cat {
       position: absolute;
       margin-right: 10px;
@@ -289,9 +295,11 @@ nav ul li {
       color: white;
     }
   }
-  img {
-    width: 100%;
-    max-width: 600px;
+  .body-post {
+    img {
+      width: 100%;
+      max-width: 600px;
+    }
   }
   h1 {
     font-size: 1.7rem;
@@ -303,7 +311,7 @@ nav ul li {
   p {
     padding: 0.7rem 0.7rem;
     color: #08090c;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.5;
     text-align: right;
   }
@@ -342,16 +350,19 @@ nav ul li {
     background-color: #3498db;
     display: inline-block;
     padding: 0.25em 0.4em;
-    /* font-size: 75%; */
+    font-size: 13px;
     font-weight: 500;
-    /* line-height: 1; */
     text-align: center;
-    /* white-space: nowrap; */
     vertical-align: baseline;
     border-radius: 0.25rem;
   }
 }
-
+.gatsby-image-wrapper {
+  margin-right: 29px;
+  img {
+    left: unset !important;
+  }
+}
 footer {
   text-align: center;
   margin-top: 1rem;

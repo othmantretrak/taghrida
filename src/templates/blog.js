@@ -53,20 +53,19 @@ const Blog = props => {
     return arrspli.map((e, i) => {
       let u = e.replace("->", "").replace("<-", "")
       return (
-        <>
+        <div key={i} className="body-post">
           {parse(u)}
           <Img fluid={imgArr[i]} />
-        </>
+        </div>
       )
     })
   }
 
-  const contentModifyed = props.pageContext.modifiedData.images
-    ? rrr(
-        props.pageContext.modifiedData.images,
-        props.data.swapi.article.content
-      )
-    : parse(props.data.swapi.article.content)
+  const contentModifyed = props.pageContext.modifiedData.images ? (
+    rrr(props.pageContext.modifiedData.images, props.data.swapi.article.content)
+  ) : (
+    <div className="body-post">{parse(props.data.swapi.article.content)}</div>
+  )
 
   return (
     <Layout>
@@ -105,7 +104,7 @@ const Blog = props => {
             <GoogleAd />
           </div>
 
-          <div className="body-post">{contentModifyed}</div>
+          {contentModifyed}
           <div className="page-fb">
             <FacebookProvider appId="991319730968312" language="ar_AR">
               <Like

@@ -11,12 +11,12 @@ const RelatedPost = ({ related }) => (
             <picture>
               <source
                 media="(min-width: 1200px)"
-                srcSet={`${post.imgUri}?w=800&fit=fill&fm=webp`}
+                srcSet={`${post.imgUri}?w=400&fit=fill&fm=webp`}
                 type="image/webp"
               />
               <source
                 media="(min-width: 992px)"
-                srcSet={`${post.imgUri}?w=600&fit=fill&fm=webp`}
+                srcSet={`${post.imgUri}?w=400&fit=fill&fm=webp`}
                 type="image/webp"
               />
 

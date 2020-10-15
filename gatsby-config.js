@@ -39,6 +39,7 @@ module.exports = {
         typeName: "SWAPI",
         fieldName: "swapi",
         url: "https://mongo-graph-taghrida.herokuapp.com",
+        //url: "http://localhost:4000",
       },
     },
     "gatsby-plugin-sass",
