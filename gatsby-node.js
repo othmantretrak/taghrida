@@ -2,10 +2,7 @@ const path = require(`path`)
 const createPaginatedPages = require("gatsby-paginate")
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const { fluid } = require(`gatsby-plugin-sharp`)
-const sharp = require("sharp")
 
-sharp.cache(false)
-sharp.simd(false)
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -101,7 +98,8 @@ exports.onCreateNode = async ({
   if (node.internal.type === "SitePage") {
     if (node.context && node.context.img) {
       if (!node.context.modified) {
-        let elementorData = { img: node.context.img }
+        let elementorData={}
+         elementorData.img= node.context.img 
         if (node.context.images && node.context.images.length > 0) {
           elementorData.images = node.context.images
         }
@@ -125,11 +123,11 @@ exports.onCreateNode = async ({
             })
             elementorData.img = generatedImage
             //_________________
-
-            if (node.context.images && node.context.images.length > 0) {
-              for (let i = 0; i < node.context.images.length; i++) {
+            elementorData.imageResults = []
+            if (elementorData.images && elementorData.images.length > 0) {
+              for (let i = 0; i < elementorData.images.length; i++) {
                 let fileNode = await createRemoteFileNode({
-                  url: node.context.images[i],
+                  url: elementorData.images[i],
                   parentNodeId: node.id,
                   store,
                   cache,
@@ -142,7 +140,9 @@ exports.onCreateNode = async ({
                   cache,
                   reporter,
                 })
-                elementorData.images[i] = generatedImage
+                
+                //elementorData.imageResults.push(generatedImage) 
+                elementorData.imageResults[i]=generatedImage
               }
             }
 
@@ -165,13 +165,6 @@ exports.onCreateNode = async ({
             })
 
             return fluidResult
-
-            // const imgOptions = {
-            //   fluid: fluidResult,
-            // }
-            // const ReactImgEl = React.createElement(Img.default, imgOptions, null)
-
-            // return ReactDOMServer.renderToString(ReactImgEl)
           }
 
           await downloadImages().then(fileNode => {

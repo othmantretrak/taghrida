@@ -57,6 +57,7 @@ typings/
 # gatsby files
 .cache/
 public
+gatsby-node-copy.js
 
 # Mac files
 .DS_Store

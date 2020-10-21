@@ -42,8 +42,8 @@ const Blog = props => {
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
     "head"
   ) */
-
-  const [hide, sethide] = React.useState("none")
+console.log(props.pageContext.modifiedData);
+  //const [hide, sethide] = React.useState("none")
   let related = props.data.swapi.article.cat.articles.filter(function(ele) {
     return ele.id !== props.pageContext.id
   })
@@ -55,14 +55,14 @@ const Blog = props => {
       return (
         <div key={i} className="body-post">
           {parse(u)}
-          <Img fluid={imgArr[i]} />
+          {imgArr[i]?<Img fluid={imgArr[i]} />:""}
         </div>
       )
     })
   }
 
-  const contentModifyed = props.pageContext.modifiedData.images ? (
-    rrr(props.pageContext.modifiedData.images, props.data.swapi.article.content)
+  const contentModifyed = props.pageContext.modifiedData.imageResults ? (
+    rrr(props.pageContext.modifiedData.imageResults, props.data.swapi.article.content)
   ) : (
     <div className="body-post">{parse(props.data.swapi.article.content)}</div>
   )
