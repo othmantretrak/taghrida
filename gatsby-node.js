@@ -108,6 +108,7 @@ exports.onCreateNode = async ({
           deletePage(node)
 
           async function downloadImages() {
+            console.log("single img",elementorData.img);
             let fileNode = await createRemoteFileNode({
               url: elementorData.img,
               parentNodeId: node.id,
@@ -126,6 +127,7 @@ exports.onCreateNode = async ({
             elementorData.imageResults = []
             if (elementorData.images && elementorData.images.length > 0) {
               for (let i = 0; i < elementorData.images.length; i++) {
+                console.log("multip img",elementorData.images[i]);
                 let fileNode = await createRemoteFileNode({
                   url: elementorData.images[i],
                   parentNodeId: node.id,
